@@ -27,9 +27,8 @@ A modern and responsive personal portfolio website built with HTML, CSS, and Jav
 - Contact Me
 
  Live Demo
-
 You can view the live portfolio here:  
-[View Live Portfolio](https://nikitavaswani.github.io/codealpha_task1/)
+https://nikitavaswani.github.io/codealpha_task1/
 
 
 About This Project
