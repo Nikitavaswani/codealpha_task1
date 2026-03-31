@@ -37,5 +37,4 @@ About This Project
 This portfolio was created as part of my learning journey and internship application. It showcases my front-end development skills with a focus on clean code and user-friendly design.
 
 
-
 Made with ❤️ by **Nikita Vaswani**
