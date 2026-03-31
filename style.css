@@ -1,0 +1,436 @@
+:root {
+    --deep-forest:    #264d36;
+    --golden-sun:     #ffb703;
+    --pure-white:     #ffffff;
+    --near-black:     #121212;
+    --antique-gold:   #d4a017;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: var(--near-black);
+}
+
+/* HEADER / NAVIGATION */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: var(--deep-forest);
+    backdrop-filter: blur(8px);
+    color: var(--pure-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: var(--pure-white);
+    margin: 0 12px;
+    text-decoration: none;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--golden-sun);
+    transition: .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.btn {
+    background: var(--golden-sun);
+    color: var(--near-black);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    background: var(--antique-gold);
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(38,77,54,0.92), rgba(38,77,54,0.92)),
+                url("background\ picture.jpg") center/cover;
+    color: var(--pure-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 90px;
+    font-family: "Playfair Display", serif;
+    animation: fadeDown 1s ease;
+}
+
+.hero p {
+    opacity: .9;
+    margin-top: 10px;
+    animation: fadeUp 1.5s ease;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--pure-white);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.chevron {
+    width: 20px;
+    height: 20px;
+    border: solid var(--pure-white);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    margin: 4px 0;
+    animation: bounce 2s infinite;
+}
+
+.chevron:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.scroll-indicator span {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 90px 40px;
+}
+
+/* All main headings now use same font style as "Hello, I'm Nikita Vaswani" */
+.about h2,
+.projects h2,
+.skills h2,
+.resume h2,
+.contact h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;               /* ← changed from 900 to 700 */
+    font-size: 56px;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about h2,
+.skills h2,
+.contact h2 {
+    color: var(--deep-forest);
+}
+
+.projects h2,
+.resume h2 {
+    color: var(--pure-white);
+}
+
+@media (max-width: 768px) {
+    .about h2, .projects h2, .skills h2, .resume h2, .contact h2 {
+        font-size: 42px;
+    }
+    .hero h2 {
+        font-size: 50px;
+    }
+}
+
+/* ABOUT */
+.about {
+    text-align: center;
+    background: var(--pure-white);
+}
+
+.about-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--near-black);
+    opacity: 0.9;
+}
+
+/* PROJECTS */
+.projects {
+    background: var(--deep-forest);
+    color: var(--pure-white);
+    text-align: center;
+}
+
+.project-grid {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--pure-white);
+    color: var(--near-black);
+    width: 260px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    transition: .4s;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: var(--golden-sun);
+    top: 0;
+    left: 0;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,.3);
+}
+
+.project-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 22px;
+    background: var(--golden-sun);
+    color: var(--near-black);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.project-btn:hover {
+    background: var(--antique-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 160, 23, 0.25);
+}
+
+/* SKILLS */
+.skills {
+    text-align: center;
+    background: var(--pure-white);
+}
+
+.skill-list {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.skill {
+    background: var(--golden-sun);
+    color: var(--near-black);
+    padding: 12px 22px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    transition: all 0.35s ease;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: default;
+}
+
+.skill:hover {
+    background: var(--antique-gold);
+    transform: translateY(-4px) scale(1.12);
+    box-shadow: 0 12px 30px rgba(212, 160, 23, 0.35);
+    color: #111;
+}
+
+/* RESUME */
+.resume {
+    background: var(--deep-forest);
+    color: var(--pure-white);
+    text-align: center;
+}
+
+.resume p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--golden-sun);
+    color: var(--near-black);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 183, 3, 0.25);
+}
+
+.resume-btn:hover {
+    background: var(--antique-gold);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(212, 160, 23, 0.35);
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+    background: var(--pure-white);
+}
+
+input, textarea {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    background: #fff;
+}
+
+button {
+    padding: 12px 30px;
+    background: var(--deep-forest);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+button:hover {
+    background: var(--golden-sun);
+    color: var(--near-black);
+    transform: translateY(-2px);
+}
+
+
+
+
+/* ───────────────────────────────────────────────
+   SUBTITLE – consistent professional look across all sections
+───────────────────────────────────────────────── */
+.section-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 4;                    /* regular – clean & readable */
+    font-size: 1.05rem;                  /* ≈16.8–17px – slightly larger than normal text */
+    line-height: 1.6;
+    color: inherit;                      /* automatically matches section text color */
+    opacity: 0.85;
+    margin: 0 auto 2.5rem auto;          /* good breathing space below heading */
+    max-width: 720px;
+    text-align: center;
+    letter-spacing: 0.4px;
+}
+
+/* Stronger contrast in dark sections (Projects, Resume) */
+.projects .section-subtitle,
+.resume .section-subtitle {
+    opacity: 0.92;
+    color: var(--pure-white);
+}
+
+/* Slightly softer in light sections */
+.about .section-subtitle,
+.skills .section-subtitle,
+.contact .section-subtitle {
+    color: var(--near-black);
+}
+
+/* Mobile – keep it readable */
+@media (max-width: 768px) {
+    .section-subtitle {
+        font-size: 0.98rem;              /* ≈15.7px */
+        margin-bottom: 2rem;
+        padding: 0 10px;
+    }
+}
+
+
+footer {
+    background: var(--deep-forest);
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    padding: 2.5rem 1rem 2rem;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
+    40% { transform: rotate(45deg) translateY(-10px); }
+    60% { transform: rotate(45deg) translateY(-5px); }
+}
